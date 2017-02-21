@@ -16,10 +16,9 @@ drawDetails.flag <- function(x, recording=FALSE){
 
 #' @export
 scale_country <- function(..., guide = "legend") {
-  sc <- discrete_scale("country", "identity", scales::identity_pal(), ..., guide = guide)
-  
-  sc$super <- ScaleDiscreteIdentity
-  class(sc) <- class(ScaleDiscreteIdentity)
+  sc <- discrete_scale("country", "identity", scales::identity_pal(), ..., guide = guide,
+                       super = ScaleDiscreteIdentity)
+
   sc
 }
 
