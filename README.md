@@ -19,7 +19,7 @@ ggplot(d, aes(x=x, y=y, country=country, size=x)) +
   scale_country()
 ```
 
-![](README_files/figure-markdown_github/demo-1.png)<!-- -->
+![](README_files/figure-markdown_github/demo-1.png)
 
 The flags are taken from wikipedia via <https://github.com/behdad/region-flags>
 
