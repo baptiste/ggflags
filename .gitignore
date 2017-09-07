@@ -20,3 +20,6 @@ vignettes/*.pdf
 .Rproj.user
 
 inst/png/
+inst/svg/
+inst/cairo/
+
