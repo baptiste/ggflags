@@ -7,9 +7,12 @@ flagGrob <- function(x, y, country, size=1, alpha=1){
 drawDetails.flag <- function(x, recording=FALSE){
   
   for(ii in seq_along(x$country)){
-    grid.raster(x$x[ii], x$y[ii], 
-                width = x$size[ii]*unit(1,"mm"), height = x$size[ii]*unit(0.5,"mm"),
-                image = .flaglist[[x$country[[ii]]]], interpolate=FALSE)
+    # grid.raster(x$x[ii], x$y[ii], 
+    #             width = x$size[ii]*unit(1,"mm"), height = x$size[ii]*unit(0.5,"mm"),
+    #             image = .flaglist[[x$country[[ii]]]], interpolate=FALSE)
+    grImport2::grid.picture(picture = .flaglist[[x$country[[ii]]]],
+      x = x$x[ii], y = x$y[ii],
+      width = x$size[ii] * unit(1, "mm"), height = x$size[ii] * unit(1, "mm"))
   }
 }
 
@@ -58,7 +61,8 @@ GeomFlag <- ggproto("GeomFlag", Geom,
 #' ggplot(d, aes(x=x, y=y, country=country, size=x)) + 
 #'   geom_flag() + 
 #'   scale_country()
-#' @importFrom grid rasterGrob unit grob drawDetails grid.raster
+#' @importFrom grid rasterGrob unit grob drawDetails
+#' @importFrom grImport2 grid.picture
 #' @export
 geom_flag <- function(mapping = NULL, data = NULL, stat = "identity",
                       position = "identity", na.rm = FALSE, show.legend = NA, 
